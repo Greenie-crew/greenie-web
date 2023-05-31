@@ -1,0 +1,23 @@
+.album {
+    width: 120px;
+    height: 120px;
+    background-color: #999999;
+
+}
+
+h4 {
+    margin-top: 12px;
+    margin-bottom: -2px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
+}
+
+span {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #767676;
+
+}

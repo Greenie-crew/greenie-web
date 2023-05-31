@@ -1,0 +1,86 @@
+.resource-item {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    margin: 1rem;
+    height: 60px;
+
+  }
+  
+  .resource-item__description {
+   display: flex;
+   flex-direction: row; 
+   align-items: flex-start;
+   flex-flow: row;
+   justify-content: space-around;
+   flex: 0.6;
+
+   
+   
+  }
+  
+  .resource-item h3 {
+    color: #111111;
+    font-size: 14px;
+    margin: 0;
+    margin-left: 1.2rem;
+    font-weight: 400;
+  }
+
+  .resource-item span {
+    margin: 0 0.5rem;
+    font-size: 12px;
+    flex: 1;
+    font-weight: 400;
+    color: #767676;
+
+  }
+
+  .resource-img__outline {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: white;
+
+  }
+
+  .resource-img__outline img {
+    width: 100%;
+    height: 100%;
+    object-position: center; 
+
+   
+
+  }
+  
+  .resource_link{
+    font-size: 14px;
+    font-weight: 300;
+    color: #767676;
+    border-radius: 12px;
+    text-decoration: none;
+    line-height: 21px;
+    
+  }
+  
+  /* @media (min-width: 580px) {
+    .expense-item__description {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      flex: 1;
+    }
+  
+    .expense-item__description h2 {
+      font-size: 1.25rem;
+    }
+  
+    .expense-item__price {
+      font-size: 1.25rem;
+      padding: 0.5rem 1.5rem;
+    }
+  } */

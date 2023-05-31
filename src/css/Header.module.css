@@ -1,0 +1,48 @@
+.header {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 56px;
+    align-items: center;
+    padding: 0 1rem;
+   
+   
+}
+
+.header__left {
+    width: 2;
+    line-height: 50%;
+    
+    
+}
+
+.header__center {
+    width: 6;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    text-align: center;
+
+}
+
+.centerWithoutRecord {
+    justify-content: center;
+  }
+
+
+.header__right {
+    width: 2;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 23.68px;
+
+    
+}
+
+.hr {
+    opacity: 0.2;
+    background-color: #F0F0F6;
+    padding: 0;
+    margin: 0;
+}
