@@ -1,0 +1,40 @@
+.banner {
+    width: 100%;
+    height: 200px;
+    background-color: #0A67E5;
+    display: flex;
+    padding: 1.5rem;
+    justify-content: space-around;
+}
+
+.mention {
+    padding: 8px 5px;
+    display: block;
+    padding-right: 13px;
+}
+
+.mention img {
+    margin-top: 20px;
+
+}
+
+.title {
+    display: block;
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 17.76px;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.description {
+    display: block;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+    line-height: 26.64px;
+
+}
+
+
+

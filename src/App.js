@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import NoiseAnalysisResults from "./pages/noise_analysis_results";
+import ComplaintApply from "./pages/complaint_apply";
 
 function App() {
   function setScreenSize() {
@@ -11,7 +13,14 @@ function App() {
     setScreenSize();
   });
 
-  return <NoiseAnalysisResults />;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<NoiseAnalysisResults />} />
+        <Route path="/complaint_apply" element={<ComplaintApply />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

@@ -1,6 +1,9 @@
 .board {
     margin: 2rem 1rem;
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -11,3 +14,10 @@
     line-height: 23.68px ;
     
 }
+
+.moreInfo {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+  }

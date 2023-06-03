@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import classes from "../css/Footer.module.css";
 import ShareModal from "../UI/ShareModal";
+import { useNavigate } from "react-router-dom";
 
 const Footer = (props) => {
+  const navigate = useNavigate();
+
+  const navigateToComplaint = () => {
+    navigate("/complaint_apply");
+  };
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -18,7 +24,7 @@ const Footer = (props) => {
   return (
     <>
       <footer className={classes.footer}>
-        <button>다시 측정하기</button>
+        <button onClick={navigateToComplaint}>다시 측정하기</button>
         <button className={classes.btn_active} onClick={openModal}>
           공유하기
         </button>

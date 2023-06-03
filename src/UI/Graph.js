@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 import classes from "./Graph.module.css";
+import instrumentsImage from "../images/instruments.png";
 
 ChartJS.register(ArcElement, Tooltip);
 
@@ -13,9 +14,9 @@ ChartJS.register({
 
     // 이미지 그리기
     const image = new Image();
-    image.src = "/icons/car.svg";
-    const imageWidth = 73;
-    const imageHeight = 73;
+    image.src = instrumentsImage;
+    const imageWidth = 50;
+    const imageHeight = 50;
     const imageX = (chartArea.left + chartArea.right - imageWidth) / 2;
     const imageY = (chartArea.top + chartArea.bottom - imageHeight) / 2.5;
     ctx.drawImage(image, imageX, imageY, imageWidth, imageHeight);
@@ -23,7 +24,7 @@ ChartJS.register({
     // 텍스트 그리기
     const DBavg_text = "81.7 DB";
     const textX = (chartArea.left + chartArea.right) / 2;
-    const textY = imageY + imageHeight + 10;
+    const textY = imageY + imageHeight + 30;
     ctx.textAlign = "center";
     ctx.font = "bold 20px arial";
     ctx.fillStyle = "black";

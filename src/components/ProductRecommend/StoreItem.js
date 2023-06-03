@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 
 import classes from "./StoreItem.module.css";
 import Card from "../../UI/Card";
 
 const StoreItem = (props) => {
+  const tagsArray = props.tags ? Object.values(props.tags) : [];
+
   return (
     <div className={classes.storeAlbum}>
       <Card className={classes.store}></Card>
-      <h4 className={classes.title}>{props.title}</h4>
+      <div className={classes.label}>
+        <h4 className={classes.title}>{props.title}</h4>
+        <span className={classes.description}>{props.description}</span>
+        <div className={classes.tags}>
+          {tagsArray.map((tag, index) => (
+            <span key={index} className={classes.tag}>
+              #{tag}{" "}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

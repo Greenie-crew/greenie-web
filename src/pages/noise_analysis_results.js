@@ -14,36 +14,43 @@ import Bar from "../UI/Bar";
 //소음원 종류 데이터
 const DUMMY_RESOURCES = [
   {
-    svgPath: "/icons/car.svg",
-    title: "자동차",
-    percent: "70%",
-  },
-  {
-    svgPath: "/icons/vaccum-cleaner.svg",
-    title: "청소기",
+    title: "가전",
     percent: "20%",
+    db: "50.2",
   },
   {
-    svgPath: "/icons/drum1.svg",
-    title: "악기",
-    percent: "5%",
+    title: "악기음악",
+    percent: "70%",
+    db: "81.7",
   },
   {
-    svgPath: "/icons/dots.svg",
-    title: "기타",
+    title: "가구",
     percent: "5%",
+    db: "17.2",
+  },
+  {
+    title: "발",
+    percent: "1%",
+    db: "14.5",
+  },
+  {
+    title: "자연",
+    percent: "2%",
+    db: "14.5",
   },
 ];
 
 function NoiseAnalysisResults() {
   const [resources, setResources] = useState(DUMMY_RESOURCES);
 
+  const sortedResources = resources.sort((a, b) => Math.round(parseFloat(b.percent)) - Math.round(parseFloat(a.percent)));
+  console.log(sortedResources);
   return (
     <>
       <Header showRecord={true}>소음 분석 결과</Header>
       <GraphPanel />
       <Bar />
-      <ResourcesPanel items={resources} />
+      <ResourcesPanel items={sortedResources} />
       <HealthPanel />
       <StorePanel />
       <Footer />

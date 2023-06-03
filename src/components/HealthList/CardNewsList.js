@@ -18,12 +18,13 @@ const CardNewsList = (props) => {
   const onDragMove = (e) => {
     if (isDrag) {
       const { scrollWidth, clientWidth, scrollLeft } = scrollRef.current;
+      const maxScrollLeft = scrollWidth - clientWidth;
 
       scrollRef.current.scrollLeft = startX - e.pageX;
 
       if (scrollLeft === 0) {
         setStartX(e.pageX);
-      } else if (scrollWidth <= clientWidth + scrollLeft) {
+      } else if (scrollWidth === maxScrollLeft) {
         setStartX(e.pageX + scrollLeft);
       }
     }
@@ -48,7 +49,7 @@ const CardNewsList = (props) => {
   return (
     <ul className="cardnews-list" ref={scrollRef} onMouseDown={onDragStart} onMouseMove={onThrottleDragMove} onMouseUp={onDragEnd} onMouseLeave={onDragEnd}>
       {props.items.map((album) => (
-        <CardAlbum key={album.id} title={album.title} writer={album.writer} />
+        <CardAlbum key={album.id} img={album.img} title={album.title} />
       ))}
     </ul>
   );

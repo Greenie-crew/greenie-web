@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import Panel from "../../UI/Panel";
 import CardNewsList from "./CardNewsList";
+import speaker from "../../images/speaker.png";
+import earplug from "../../images/earplug.png";
+import landscape from "../../images/landscape.png";
 
 const DUMMY_CARDS = [
-  { title: "제로 소음 힐링", writer: "네이버 블로그" },
-  { title: "청력 건강 지키기", writer: "매거진" },
-  { title: "멘탈 회복하는 법", writer: "힐링 인플루언서" },
-  { title: "title1", writer: "힐링 인플루언서" },
-  { title: "title2", writer: "writer1" },
-  { title: "title3", writer: "222222" },
-  { title: "title4", writer: "3333333" },
+  { img: speaker, title: "74dB 이상의 소리 노출 피하기" },
+  { img: earplug, title: "시끄러운 환경에서 귀마개 준비하기" },
+  { img: landscape, title: "산책하기 등의 조용한 활동 즐기기" },
 ];
 
 const ResourcesPanel = (props) => {

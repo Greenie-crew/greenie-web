@@ -6,9 +6,7 @@ const StoreList = (props) => {
   return (
     <div className={classes.container}>
       {props.items.map((album, index) => (
-        <div>
-          <StoreItem key={album.id} title={album.title} />
-        </div>
+        <StoreItem key={album.id} title={album.title} description={album.description} tags={album.tags} />
       ))}
     </div>
   );

@@ -12,7 +12,7 @@ const ResourceItem = (props) => {
   return (
     <li>
       <Card className="resource-item">
-        <div className="resource-img__outline">
+        <div className="resource-img">
           <img src={props.svgPath} alt="SVG" />
         </div>
         <div className="resource-item__description">
