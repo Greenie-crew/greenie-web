@@ -1,45 +1,48 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
 import classes from "./Graph.module.css";
-import instrumentsImage from "../images/instruments.png";
+import svgPaths from "../components/SvgPaths";
 
 ChartJS.register(ArcElement, Tooltip);
 
-ChartJS.register({
-  id: "customPlugin",
-  beforeDraw: (chart) => {
-    const { ctx, chartArea } = chart;
-
-    // 이미지 그리기
-    const image = new Image();
-    image.src = instrumentsImage;
-    const imageWidth = 50;
-    const imageHeight = 50;
-    const imageX = (chartArea.left + chartArea.right - imageWidth) / 2;
-    const imageY = (chartArea.top + chartArea.bottom - imageHeight) / 2.5;
-    ctx.drawImage(image, imageX, imageY, imageWidth, imageHeight);
-
-    // 텍스트 그리기
-    const DBavg_text = "81.7 DB";
-    const textX = (chartArea.left + chartArea.right) / 2;
-    const textY = imageY + imageHeight + 30;
-    ctx.textAlign = "center";
-    ctx.font = "bold 20px arial";
-    ctx.fillStyle = "black";
-    ctx.fillText(DBavg_text, textX, textY);
-  },
-});
-
 const Graph = (props) => {
+  useEffect(() => {
+    ChartJS.register({
+      id: "customPlugin",
+      afterDraw: (chart) => {
+        const { ctx, chartArea } = chart;
+
+        // 이미지 그리기
+        const image = new Image();
+        image.src = svgPaths[props.resource[0].title].src;
+        const imageWidth = 50;
+        const imageHeight = 50;
+        const imageX = (chartArea.left + chartArea.right - imageWidth) / 2;
+        const imageY = (chartArea.top + chartArea.bottom - imageHeight) / 2.5;
+        ctx.drawImage(image, imageX, imageY, imageWidth, imageHeight);
+
+        // 텍스트 그리기
+        const DBavg_text = `${props.db} DB`;
+        const textX = (chartArea.left + chartArea.right) / 2;
+        const textY = imageY + imageHeight + 30;
+        ctx.textAlign = "center";
+        ctx.font = "bold 20px arial";
+        ctx.fillStyle = "black";
+        ctx.fillText(DBavg_text, textX, textY);
+      },
+    });
+  }, [props.resource, props.db]);
+
+  const colors = props.resource.map((resource) => svgPaths[resource.title].color);
+
   const data = {
-    labels: ["Red", "Blue", "Yellow", "Green"],
     datasets: [
       {
-        data: [70, 20, 5, 5],
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#33FF9E"],
-        hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#33FF9E"],
+        data: props.resource.map((resource) => parseFloat(resource.percent)),
+        backgroundColor: colors,
+        hoverBackgroundColor: colors,
       },
     ],
   };

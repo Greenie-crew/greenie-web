@@ -8,6 +8,7 @@ const Footer = (props) => {
 
   const navigateToComplaint = () => {
     navigate("/complaint_apply");
+    window.scrollTo(0, 0); // 페이지 이동 후 스크롤을 상단으로 이동
   };
   const [modalOpen, setModalOpen] = useState(false);
 

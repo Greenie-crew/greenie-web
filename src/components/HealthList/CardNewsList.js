@@ -49,7 +49,7 @@ const CardNewsList = (props) => {
   return (
     <ul className="cardnews-list" ref={scrollRef} onMouseDown={onDragStart} onMouseMove={onThrottleDragMove} onMouseUp={onDragEnd} onMouseLeave={onDragEnd}>
       {props.items.map((album) => (
-        <CardAlbum key={album.id} img={album.img} title={album.title} />
+        <CardAlbum key={album.id} img={album.img} title={album.title} className="cardAlbum_margin" />
       ))}
     </ul>
   );

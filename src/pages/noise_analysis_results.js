@@ -19,9 +19,9 @@ const DUMMY_RESOURCES = [
     db: "50.2",
   },
   {
-    title: "악기음악",
+    title: "생리적",
     percent: "70%",
-    db: "81.7",
+    db: "70.5",
   },
   {
     title: "가구",
@@ -43,14 +43,27 @@ const DUMMY_RESOURCES = [
 function NoiseAnalysisResults() {
   const [resources, setResources] = useState(DUMMY_RESOURCES);
 
+  useEffect(() => {
+    setResources(DUMMY_RESOURCES);
+  }, []);
+
   const sortedResources = resources.sort((a, b) => Math.round(parseFloat(b.percent)) - Math.round(parseFloat(a.percent)));
-  console.log(sortedResources);
+
+  //상위 3개 filter
+  const top3Resources = sortedResources.slice(0, 3);
+
+  //기타 퍼센트 계산
+  const totalPercent = top3Resources.reduce((total, resource) => total + Math.round(parseFloat(resource.percent)), 0);
+  const remainingPercent = 100 - totalPercent;
+
+  const mergedResources = [...top3Resources, { title: "기타", percent: `${remainingPercent}%` }];
+
   return (
     <>
       <Header showRecord={true}>소음 분석 결과</Header>
-      <GraphPanel />
+      <GraphPanel result={mergedResources} />
       <Bar />
-      <ResourcesPanel items={sortedResources} />
+      <ResourcesPanel items={mergedResources} />
       <HealthPanel />
       <StorePanel />
       <Footer />

@@ -1,6 +1,22 @@
+.circleIcon {
+    display: inline-block;
+    width: 62px;
+    height: 130px;
+    overflow: hidden;
+}
+
 .circle {
-    stroke: red;
-    stroke-width: 2;
-    fill: white;
+    fill: #F7F7FB;
+    align-items: center;
+
+}
+
+.circleIcon h4 {
+    margin: 5px 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17.76px;
+    color: #111111;
+    text-align: center;
 
 }

@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import NoiseAnalysisResults from "./pages/noise_analysis_results";
 import ComplaintApply from "./pages/complaint_apply";
+import MentalHearingHealth from "./pages/mental_hearing_health";
+import Product from "./pages/product";
 
 function App() {
   function setScreenSize() {
@@ -18,6 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<NoiseAnalysisResults />} />
         <Route path="/complaint_apply" element={<ComplaintApply />} />
+        <Route path="/mental_hearing_health" element={<MentalHearingHealth />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
     </Router>
   );

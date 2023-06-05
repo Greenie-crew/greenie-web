@@ -6,6 +6,7 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     margin-bottom: 2.5rem;
+    margin-left: 1rem;
 
     
   }
@@ -13,5 +14,6 @@
   .cardnews-list::-webkit-scrollbar {
     display: none;
   }
+
 
   
