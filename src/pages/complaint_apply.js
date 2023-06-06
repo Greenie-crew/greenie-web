@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import Header from "../components/Header";
 
 import Banner from "../UI/Banner";
-
-import Bar from "../UI/Bar";
 
 import { Tab } from "../UI/Tab";
 import Consult from "../components/CS/Consult";

@@ -2,7 +2,7 @@
     display: flex;
     justify-content:flex-start;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1rem;
     margin: 1rem;
     height: 60px;
 
@@ -23,7 +23,7 @@
   
   .resource-item h3 {
     color: #111111;
-    font-size: 14px;
+    font-size: 16px;
     margin: 0;
     margin-left: 1rem;
     font-weight: 400;
@@ -31,9 +31,9 @@
 
   .resource-item span {
     margin: 0 0.5rem;
-    font-size: 12px;
+    font-size: 16px;
     flex: 1;
-    font-weight: 400;
+    font-weight: 300;
     color: #767676;
 
   }

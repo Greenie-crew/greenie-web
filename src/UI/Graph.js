@@ -5,34 +5,56 @@ import { Doughnut } from "react-chartjs-2";
 import classes from "./Graph.module.css";
 import svgPaths from "../components/SvgPaths";
 
-ChartJS.register(ArcElement, Tooltip);
+ChartJS.register(Tooltip, ArcElement);
 
 const Graph = (props) => {
   useEffect(() => {
-    ChartJS.register({
+    const customPlugin = {
       id: "customPlugin",
-      afterDraw: (chart) => {
-        const { ctx, chartArea } = chart;
+      beforeDraw: (chart) => {
+        const ctx = chart.ctx;
+        const chartArea = chart.chartArea;
 
         // 이미지 그리기
         const image = new Image();
         image.src = svgPaths[props.resource[0].title].src;
+
         const imageWidth = 50;
         const imageHeight = 50;
         const imageX = (chartArea.left + chartArea.right - imageWidth) / 2;
         const imageY = (chartArea.top + chartArea.bottom - imageHeight) / 2.5;
-        ctx.drawImage(image, imageX, imageY, imageWidth, imageHeight);
+
+        image.onload = () => {
+          ctx.drawImage(image, imageX, imageY, imageWidth, imageHeight);
+        };
 
         // 텍스트 그리기
-        const DBavg_text = `${props.db} DB`;
-        const textX = (chartArea.left + chartArea.right) / 2;
-        const textY = imageY + imageHeight + 30;
+        const DBavg_text = `${props.db}`;
+        const textX = (chartArea.left + chartArea.right) / 2.15;
+        const textY = imageY + imageHeight + 32;
+        const originalFont = ctx.font;
+
         ctx.textAlign = "center";
         ctx.font = "bold 20px arial";
         ctx.fillStyle = "black";
         ctx.fillText(DBavg_text, textX, textY);
+        ctx.font = originalFont;
+
+        // 두 번째 텍스트 그리기
+        const dbX = textX + ctx.measureText(props.db).width + 13;
+        const dbY = textY;
+        ctx.font = "normal 16px arial";
+        ctx.fillStyle = "#111111";
+        ctx.fillText("dB", dbX, dbY);
+        ctx.font = originalFont;
       },
-    });
+    };
+
+    ChartJS.register(customPlugin);
+
+    return () => {
+      ChartJS.unregister(customPlugin);
+    };
   }, [props.resource, props.db]);
 
   const colors = props.resource.map((resource) => svgPaths[resource.title].color);
@@ -66,10 +88,8 @@ const Graph = (props) => {
   };
 
   return (
-    <div style={{ justifyContent: "center" }}>
-      <div className={classes.graph}>
-        <Doughnut data={data} options={chartOptions} />
-      </div>
+    <div className={classes.graph}>
+      <Doughnut data={data} options={chartOptions} />
     </div>
   );
 };

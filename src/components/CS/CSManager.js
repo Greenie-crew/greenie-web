@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import cs from "../../images/cs.png";
 

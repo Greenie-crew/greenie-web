@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -19,9 +19,9 @@ const DUMMY_RESOURCES = [
     db: "50.2",
   },
   {
-    title: "생리적",
+    title: "악기음악",
     percent: "70%",
-    db: "70.5",
+    db: "60.5",
   },
   {
     title: "가구",
@@ -31,11 +31,6 @@ const DUMMY_RESOURCES = [
   {
     title: "발",
     percent: "1%",
-    db: "14.5",
-  },
-  {
-    title: "자연",
-    percent: "2%",
     db: "14.5",
   },
 ];
@@ -59,7 +54,7 @@ function NoiseAnalysisResults() {
   const mergedResources = [...top3Resources, { title: "기타", percent: `${remainingPercent}%` }];
 
   return (
-    <>
+    <Fragment>
       <Header showRecord={true}>소음 분석 결과</Header>
       <GraphPanel result={mergedResources} />
       <Bar />
@@ -67,7 +62,7 @@ function NoiseAnalysisResults() {
       <HealthPanel />
       <StorePanel />
       <Footer />
-    </>
+    </Fragment>
   );
 }
 

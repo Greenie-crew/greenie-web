@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import CardAlbum from "../components/HealthList/CardAlbum";
@@ -115,7 +115,7 @@ const fruits = [
 
 function MentalHearingHealth() {
   return (
-    <>
+    <Fragment>
       <Header showRecord={false}>건강 챙기기</Header>
       <HealthPanel>
         {/* 소음 다이어트 */}
@@ -147,8 +147,8 @@ function MentalHearingHealth() {
         </HealthTitle>
         <div className="source">SBS News</div>
         <iframe
-          frameborder="0"
-          allowfullscreen
+          frameBorder="0"
+          allowFullScreen
           id="inlineFrameAcupressure"
           title="Inline Frame Acupressure"
           src="https://news.sbs.co.kr/news/newsPlayerIframe.do?news_id=N1002876611&type=NEWS&plink=SBSNEWS&autoplay=Y&playmode=&NoAD=N&vodId=#play"></iframe>
@@ -164,7 +164,7 @@ function MentalHearingHealth() {
           ))}
         </div>
       </HealthPanel>
-    </>
+    </Fragment>
   );
 }
 

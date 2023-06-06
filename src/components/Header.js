@@ -21,7 +21,6 @@ const Header = (props) => {
         </div>
         <div className={classes.header__right}>{props.showRecord && <p>기록</p>}</div>
       </div>
-      <hr className={classes.hr} />
     </div>
   );
 };

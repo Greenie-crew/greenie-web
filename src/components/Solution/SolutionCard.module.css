@@ -1,0 +1,36 @@
+.card {
+    width: 158px;
+    height: 160px;
+    padding: 15px 15px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 12px;
+
+}
+
+.card:last-child {
+    margin-right: 0;
+}
+
+.title {
+    color: #111111;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26.64px;
+
+}
+
+.description {
+    margin: 2px;
+    margin-right: 10px;
+    color: #111111;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17.76px;
+
+}
+
+.img {
+    align-self: flex-end;
+    margin-top: 8px;
+}

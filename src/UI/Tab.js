@@ -65,7 +65,7 @@ export const Tab = (props) => {
           ))}
         </TabMenu>
         <Desc>
-          <p>{menuArr[currentTab].content}</p>
+          <div>{menuArr[currentTab].content}</div>
         </Desc>
       </div>
     </>
