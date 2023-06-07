@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3b9f2204.css",
+    "main.js": "/static/js/main.d95a9d7e.js",
+    "static/media/NotoSansCJKkr-Black.otf": "/static/media/NotoSansCJKkr-Black.c08d1a40f19a2f5a5850.otf",
+    "static/media/NotoSansCJKkr-Bold.otf": "/static/media/NotoSansCJKkr-Bold.9b1db29fc2a12922bfa6.otf",
+    "static/media/NotoSansCJKkr-Medium.otf": "/static/media/NotoSansCJKkr-Medium.a89c0e766c9f7264d04e.otf",
+    "static/media/NotoSansCJKkr-Regular.otf": "/static/media/NotoSansCJKkr-Regular.3e8a3d882f53a16eb7ff.otf",
+    "static/media/NotoSansCJKkr-DemiLight.otf": "/static/media/NotoSansCJKkr-DemiLight.0d80d7542462952de697.otf",
+    "static/media/NotoSansCJKkr-Light.otf": "/static/media/NotoSansCJKkr-Light.528e085c44a08c3b32ca.otf",
+    "static/media/NotoSansCJKkr-Thin.otf": "/static/media/NotoSansCJKkr-Thin.c5e62551d3d7d22c0f17.otf",
+    "static/media/msg_img1.png": "/static/media/msg_img1.707eda2635a53be461e1.png",
+    "static/media/msg_img2.png": "/static/media/msg_img2.67493fd7ff1255ed5a00.png",
+    "static/media/house.png": "/static/media/house.d9267fa4dbfc5fc7a1ed.png",
+    "static/media/banner_img.png": "/static/media/banner_img.8abba14f945f484fd68f.png",
+    "static/media/louder.png": "/static/media/louder.e0bce48041dcf5ceefa9.png",
+    "static/media/landscape.png": "/static/media/landscape.bd87fd354a7d1f9fec34.png",
+    "index.html": "/index.html",
+    "main.3b9f2204.css.map": "/static/css/main.3b9f2204.css.map",
+    "main.d95a9d7e.js.map": "/static/js/main.d95a9d7e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b9f2204.css",
+    "static/js/main.d95a9d7e.js"
+  ]
+}
