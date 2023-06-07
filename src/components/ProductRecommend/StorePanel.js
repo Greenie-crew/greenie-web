@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Panel from "../../UI/Panel";
 import StoreList from "./StoreList";
 import { useNavigate } from "react-router-dom";
@@ -10,12 +10,15 @@ const DUMMY_CARDS = [
 
 const ResourcesPanel = (props) => {
   const navigate = useNavigate();
+  const [storeItems, setStoreItems] = useState(DUMMY_CARDS);
+  useEffect(() => {
+    setStoreItems(storeItems);
+  }, [storeItems]); // E
 
   const navigateToProduct = () => {
     navigate("/product");
     window.scrollTo(0, 0); // 페이지 이동 후 스크롤을 상단으로 이동
   };
-  const [storeItems, setStoreItems] = useState(DUMMY_CARDS);
 
   return (
     <div style={{ paddingBottom: "20%" }}>

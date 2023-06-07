@@ -2,23 +2,7 @@ import React, { Fragment } from "react";
 import styled from "styled-components";
 import msg_img1 from "../../images/msg_img1.png";
 import msg_img2 from "../../images/msg_img2.png";
-
-const CommunicateTitle = styled.div`
-  background-color: #ffffff;
-  font-weight: 600;
-  font-size: 16px;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  padding: 0 17px;
-  margin-top: 32px;
-
-  img {
-    margin-right: 12px;
-  }
-`;
+import CommunicateTitle from "./CommunicateTitle";
 
 const Description = styled.div`
   display: flex;
@@ -93,9 +77,9 @@ const ConnectWithNeighbours = (props) => {
           height="183"
           src="https://www.youtube.com/embed/a3hmg0SomOw"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+          allowFullScreen></iframe>
         KBS News
       </Description>
       <Description>

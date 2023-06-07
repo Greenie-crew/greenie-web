@@ -26,6 +26,8 @@ const HealthTitle = styled.div`
 
   img {
     margin-right: 12px;
+    width: 30px;
+    height: 30px;
   }
 `;
 

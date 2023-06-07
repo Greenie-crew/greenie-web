@@ -1,8 +1,11 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import Header from "../components/Header";
 import styled from "styled-components";
 import { Tab } from "../UI/Tab";
 import ConnectWithNeighbours from "../components/Solution/ConnectWithNeighbours";
+import ConsiderateNeighbours from "../components/Solution/ConsiderateNeighbours";
+import { tabs } from "../components/Solution/tabs";
 
 const CustomizedTabMenu = styled(Tab)`
   height: 48px;
@@ -14,6 +17,7 @@ const CustomizedTabMenu = styled(Tab)`
     border-bottom: 2px solid #f0f0f6;
     font-weight: 600;
     line-height: 24px;
+    border-top: none;
   }
 
   .focused {
@@ -23,10 +27,24 @@ const CustomizedTabMenu = styled(Tab)`
 `;
 
 function ReduceNoiseFloors() {
+  const location = useLocation();
+
+  const { activeTab } = location.state;
+
+  const handleTabChange = (tabIndex) => {
+    console.log("Selected tab index:", tabIndex);
+  };
+
   return (
     <div style={{ marginBottom: "20%" }}>
       <Header showRecord={false}>층간 소음 줄이기</Header>
-      <CustomizedTabMenu name_1="이웃과 소통하기" name_2="이웃을 배려하기" content_1={<ConnectWithNeighbours />}></CustomizedTabMenu>
+      <CustomizedTabMenu
+        name_1="이웃과 소통하기"
+        name_2="이웃을 배려하기"
+        activeTab={activeTab}
+        onTabChange={handleTabChange}
+        content_1={<ConnectWithNeighbours />}
+        content_2={<ConsiderateNeighbours tabs={tabs} />}></CustomizedTabMenu>
     </div>
   );
 }

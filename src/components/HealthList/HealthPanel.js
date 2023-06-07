@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Panel from "../../UI/Panel";
 import CardNewsList from "./CardNewsList";
 import speaker from "../../images/speaker.png";
@@ -16,6 +16,14 @@ const HealthPanel = (props) => {
   const [cardNews, setCardNews] = useState(DUMMY_CARDS);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch or update the cardNews data here
+    // Example:
+
+    // eslint-disable-next-line no-use-before-define
+    setCardNews(cardNews);
+  }, [cardNews]);
 
   const navigateToHealth = () => {
     navigate("/mental_hearing_health");
