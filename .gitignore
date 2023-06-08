@@ -1,2 +1,4 @@
 node_modules/
 create-react-app/
+.vercel
+

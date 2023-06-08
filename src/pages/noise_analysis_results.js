@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment } from "react";
+import queryString from "query-string";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -12,35 +13,50 @@ import StorePanel from "../components/ProductRecommend/StorePanel";
 import Bar from "../UI/Bar";
 
 //소음원 종류 데이터
-const DUMMY_RESOURCES = [
-  {
-    title: "가전",
-    percent: "20%",
-    db: "50.2",
-  },
-  {
-    title: "악기음악",
-    percent: "70%",
-    db: "60.5",
-  },
-  {
-    title: "가구",
-    percent: "5%",
-    db: "17.2",
-  },
-  {
-    title: "발",
-    percent: "1%",
-    db: "14.5",
-  },
-];
+// const DUMMY_RESOURCES = [
+//   {
+//     title: "가전",
+//     percent: "20%",
+//   },
+
+//   {
+//     title: "악기음악",
+//     percent: "70%",
+//   },
+
+//   {
+//     title: "가구",
+//     percent: "5%",
+//   },
+
+//   {
+//     title: "발",
+//     percent: "1%",
+//   },
+// ];
 
 function NoiseAnalysisResults() {
-  const [resources, setResources] = useState(DUMMY_RESOURCES);
+  let qs = queryString.parse(window.location.search);
 
-  useEffect(() => {
-    setResources(DUMMY_RESOURCES);
-  }, []);
+  const averageData = {
+    title: "average",
+    db: qs.average,
+  };
+
+  const result = Object.entries(qs)
+    .map(([key, value]) => {
+      if (key === "average") {
+        return null;
+      } else {
+        return {
+          title: key,
+          percent: `${value}%`,
+        };
+      }
+    })
+    .filter((item) => item !== null);
+
+  const resources = result;
 
   const sortedResources = resources.sort((a, b) => Math.round(parseFloat(b.percent)) - Math.round(parseFloat(a.percent)));
 
@@ -56,7 +72,7 @@ function NoiseAnalysisResults() {
   return (
     <Fragment>
       <Header showRecord={true}>소음 분석 결과</Header>
-      <GraphPanel result={mergedResources} />
+      <GraphPanel result={mergedResources} avgDb={averageData} />
       <Bar />
       <ResourcesPanel items={mergedResources} />
       <HealthPanel />

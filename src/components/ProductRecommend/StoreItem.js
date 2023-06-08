@@ -8,7 +8,9 @@ const StoreItem = (props) => {
 
   return (
     <div className={classes.storeAlbum}>
-      <Card className={classes.store}></Card>
+      <Card className={classes.store}>
+        <img src={props.img} alt="storeitem_img" className={classes.img} />
+      </Card>
       <div className={classes.label}>
         <h4 className={classes.title}>{props.title}</h4>
         <span className={classes.description}>{props.description}</span>

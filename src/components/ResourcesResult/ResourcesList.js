@@ -8,7 +8,7 @@ const ResourcesList = (props) => {
   return (
     <ul className="resources-list">
       {props.items.map((resource, index) => (
-        <ResourceItem key={index} svgPath={svgPaths[resource.title].img} title={resource.title} percent={resource.percent} />
+        <ResourceItem key={index} svgPath={svgPaths[resource.title].img} title={svgPaths[resource.title].kor} percent={resource.percent} />
       ))}
     </ul>
   );
