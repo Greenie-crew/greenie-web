@@ -36,11 +36,16 @@ import Bar from "../UI/Bar";
 // ];
 
 function NoiseAnalysisResults() {
+  function round(num) {
+    var m = Number((Math.abs(num) * 10).toPrecision(15));
+    return (Math.round(m) / 10) * Math.sign(num);
+  }
+
   let qs = queryString.parse(window.location.search);
 
   const averageData = {
     title: "average",
-    db: qs.average,
+    db: round(qs.average),
   };
 
   const result = Object.entries(qs)
@@ -48,9 +53,10 @@ function NoiseAnalysisResults() {
       if (key === "average") {
         return null;
       } else {
+        const roundedValue = round(value);
         return {
           title: key,
-          percent: `${value}%`,
+          percent: `${roundedValue}%`,
         };
       }
     })
@@ -69,9 +75,19 @@ function NoiseAnalysisResults() {
 
   const mergedResources = [...top3Resources, { title: "기타", percent: `${remainingPercent}%` }];
 
+  const handleCustomFunction = () => {
+    if (typeof window.Android !== "undefined" && typeof window.Android.onBackPress === "function") {
+      // 안드로이드 웹뷰의 함수 호출
+      window.Android.onBackPress();
+      console.log("Android to go!");
+    }
+  };
+
   return (
     <Fragment>
-      <Header showRecord={true}>소음 분석 결과</Header>
+      <Header customOnClick={handleCustomFunction} showRecord={true}>
+        소음 분석 결과
+      </Header>
       <GraphPanel result={mergedResources} avgDb={averageData} />
       <Bar />
       <ResourcesPanel items={mergedResources} />

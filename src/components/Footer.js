@@ -1,15 +1,8 @@
 import React, { useState } from "react";
 import classes from "../css/Footer.module.css";
 import ShareModal from "../UI/ShareModal";
-import { useNavigate } from "react-router-dom";
 
 const Footer = (props) => {
-  const navigate = useNavigate();
-
-  const navigateToComplaint = () => {
-    navigate("/complaint_apply");
-    window.scrollTo(0, 0); // 페이지 이동 후 스크롤을 상단으로 이동
-  };
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -22,10 +15,18 @@ const Footer = (props) => {
     document.body.style.overflow = "auto";
   };
 
+  const handleReset = () => {
+    if (typeof window.Android !== "undefined" && typeof window.Android.onNavigateToRecord === "function") {
+      // 안드로이드 웹뷰의 함수 호출
+      window.Android.onNavigateToRecord();
+      console.log("Android to go!");
+    }
+  };
+
   return (
     <>
       <footer className={classes.footer}>
-        <button onClick={navigateToComplaint}>다시 측정하기</button>
+        <button onClick={handleReset}>다시 측정하기</button>
         <button className={classes.btn_active} onClick={openModal}>
           공유하기
         </button>
