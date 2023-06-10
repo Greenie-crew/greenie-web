@@ -68,6 +68,7 @@ function NoiseAnalysisResults() {
 
   //상위 3개 filter
   const top3Resources = sortedResources.slice(0, 3);
+  const top1 = sortedResources.slice(0, 1);
 
   //기타 퍼센트 계산
   const totalPercent = top3Resources.reduce((total, resource) => total + Math.round(parseFloat(resource.percent)), 0);
@@ -79,7 +80,6 @@ function NoiseAnalysisResults() {
     if (typeof window.Android !== "undefined" && typeof window.Android.onBackPress === "function") {
       // 안드로이드 웹뷰의 함수 호출
       window.Android.onBackPress();
-      console.log("Android to go!");
     }
   };
 
@@ -93,7 +93,7 @@ function NoiseAnalysisResults() {
       <ResourcesPanel items={mergedResources} />
       <HealthPanel />
       <StorePanel />
-      <Footer />
+      <Footer resource={top1} avgDb={averageData} />
     </Fragment>
   );
 }

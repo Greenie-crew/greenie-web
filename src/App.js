@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import NoiseAnalysisResults from "./pages/noise_analysis_results";
 import ComplaintApply from "./pages/complaint_apply";
@@ -18,16 +18,16 @@ function App() {
   });
 
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NoiseAnalysisResults />} />
+        <Route exact path="/" element={<NoiseAnalysisResults />} />
         <Route path="/complaint_apply" element={<ComplaintApply />} />
         <Route path="/mental_hearing_health" element={<MentalHearingHealth />} />
         <Route path="/product" element={<Product />} />
         <Route path="/solution" element={<ReduceNoise />} />
         <Route path="/solution_tab" element={<ReduceNoiseFloors />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 

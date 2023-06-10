@@ -6,8 +6,19 @@ import { useNavigate } from "react-router-dom";
 const Header = (props) => {
   const navigate = useNavigate();
 
+  const AndroidGoBack = () => {
+    if (typeof window.Android !== "undefined" && typeof window.Android.onBackPress === "function") {
+      // 안드로이드 웹뷰의 함수 호출
+      window.Android.onBackPress();
+    }
+  };
+
   const handleGoBack = () => {
-    navigate(-1);
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      AndroidGoBack();
+    }
   };
 
   const navigateToComplaint = () => {

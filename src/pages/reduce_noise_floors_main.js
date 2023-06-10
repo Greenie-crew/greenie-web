@@ -35,7 +35,7 @@ function ReduceNoise() {
   const navigate = useNavigate();
 
   const navigateToCommunity = (tabIndex) => {
-    let activeTab;
+    let activeTab = 0;
     if (tabIndex === 0) {
       activeTab = 0; // name_1 탭의 인덱스
     } else if (tabIndex === 1) {
@@ -43,6 +43,7 @@ function ReduceNoise() {
     }
 
     const state = { activeTab };
+
     navigate("/solution_tab", { state });
     window.scrollTo(0, 0); // 페이지 이동 후 스크롤을 상단으로 이동
   };

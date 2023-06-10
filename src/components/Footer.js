@@ -16,10 +16,10 @@ const Footer = (props) => {
   };
 
   const handleReset = () => {
+    // 안드로이드 웹뷰의 함수 호출
     if (typeof window.Android !== "undefined" && typeof window.Android.onNavigateToRecord === "function") {
       // 안드로이드 웹뷰의 함수 호출
       window.Android.onNavigateToRecord();
-      console.log("Android to go!");
     }
   };
 
@@ -30,7 +30,7 @@ const Footer = (props) => {
         <button className={classes.btn_active} onClick={openModal}>
           공유하기
         </button>
-        {modalOpen && <ShareModal onClose={closeModal} />}
+        {modalOpen && <ShareModal onClose={closeModal} avgDb={props.avgDb.db} resource={props.resource} />}
       </footer>
     </>
   );

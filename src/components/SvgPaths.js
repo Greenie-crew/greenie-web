@@ -7,16 +7,16 @@ const svgPaths = {
   },
 
   clashing: {
-    img: "/icons/hammer.svg",
+    img: "/icons/stronghammer.svg",
     color: "#7879F1",
-    src: "/resources/hammer.png",
+    src: "/resources/stronghammer.png",
     kor: "부딪히는",
   },
 
   강하게부딪히는: {
-    img: "/icons/stronghammer.svg",
+    img: "/icons/hammer.svg",
     color: "#F00000",
-    kor: "/resources/stronghammer.png",
+    kor: "/resources/hammer.png",
   },
 
   explosion: {

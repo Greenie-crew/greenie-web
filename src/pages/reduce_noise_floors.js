@@ -29,7 +29,7 @@ const CustomizedTabMenu = styled(Tab)`
 function ReduceNoiseFloors() {
   const location = useLocation();
 
-  const { activeTab } = location.state;
+  const { activeTab } = location.state ? location.state : 0;
 
   const handleTabChange = (tabIndex) => {
     console.log("Selected tab index:", tabIndex);
