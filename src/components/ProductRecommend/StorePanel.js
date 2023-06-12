@@ -7,34 +7,39 @@ import axios from "axios";
 //   { title: "러그", description: "가구소리, 발소리 등 각종 생활 소음을 줄일 수 있어요", tags: { 1: "발소리", 2: "가구소리", 3: "말소리" } },
 //   { title: "슬리퍼", description: "바닥과 발 사이에 완충 역할을 하여 발소리를 줄여줘요", tags: { 1: "발소리" } },
 
-const ResourcesPanel = (props) => {
+const StorePanel = (props) => {
   const navigate = useNavigate();
   const [storeItems, setStoreItems] = useState([]);
 
   console.log("storeItems: " + storeItems);
-  useEffect(() => {
-    axios
-      .get("http://43.200.32.42:8080/api/product/list")
-      .then((response) => {
-        // console.log(response.data);
-        // 응답 데이터 처리
-        const Product_CARDS = response.data.map((item) => ({
-          description: item.description,
-          imageUrl: item.imageUrl,
-          productId: item.productId,
-          productName: item.productName,
-          hashTagName: item.hashTagName[0],
-        }));
-        setStoreItems(Product_CARDS);
-      })
-      .catch((error) => {
-        // 오류 처리
-        console.error(error);
-      });
-  }, []); // E
 
-  const navigateToProduct = () => {
-    navigate("/product");
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://43.200.32.42:8080/api/product/list");
+      const productCards = response.data.map((item) => ({
+        description: item.description,
+        imageUrl: item.imageUrl,
+        productId: item.productId,
+        productName: item.productName,
+        hashTagName: item.hashTagName,
+      }));
+      setStoreItems(productCards);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  //   const StoreItemsContext = React.createContext();
+  //   const StoreItemsProvider = ({ children, storeItems }) => {
+  //     return <StoreItemsContext.Provider value={storeItems}>{children}</StoreItemsContext.Provider>;
+  //   };
+
+  const navigateToProduct = async () => {
+    await fetchData();
+    navigate("/product", { state: { storeItems } });
     window.scrollTo(0, 0); // 페이지 이동 후 스크롤을 상단으로 이동
   };
 
@@ -44,9 +49,9 @@ const ResourcesPanel = (props) => {
         노이즈 캔슬링 제품 어때요?
       </Panel>
       {/* <ShopList key={props.id} items={props.items} /> */}
-      <StoreList items={storeItems} />
+      <StoreList items={storeItems} resource={props.resource[0]} />
     </div>
   );
 };
 
-export default ResourcesPanel;
+export default StorePanel;

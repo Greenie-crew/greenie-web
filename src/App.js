@@ -15,7 +15,7 @@ function App() {
   }
   useEffect(() => {
     setScreenSize();
-  });
+  }, []);
 
   return (
     <BrowserRouter>

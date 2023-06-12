@@ -23,7 +23,9 @@ const GraphPanel = (props) => {
         소음이
       </div>
       <div className={classes.subtitle}>가장 큽니다</div>
+
       <Graph resource={props.result} db={avgDb.db} />
+
       <DbMention db={avgDb.db} />
     </div>
   );

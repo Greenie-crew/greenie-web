@@ -2,9 +2,12 @@ import React from "react";
 
 import classes from "./StoreItem.module.css";
 import Card from "../../UI/Card";
+import svgPaths from "../SvgPaths";
 
 const StoreItem = (props) => {
-  const tagsArray = props.tags ? Object.values(props.tags) : [];
+  const tagsArray = props.tags;
+
+  console.log("tagsArray:  " + JSON.stringify(tagsArray));
 
   return (
     <div className={classes.storeAlbum}>
@@ -17,7 +20,7 @@ const StoreItem = (props) => {
         <div className={classes.tags}>
           {tagsArray.map((tag, index) => (
             <span key={index} className={classes.tag}>
-              #{tag}{" "}
+              #{svgPaths[tag].kor}소리{" "}
             </span>
           ))}
         </div>

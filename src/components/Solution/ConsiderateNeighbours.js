@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import "./ConsiderateNeighbours.css";
 
-const ConsiderateNeighbours = ({ tabs }) => {
-  const [current, setCurrent] = useState(0);
+const ConsiderateNeighbours = ({ tabs, tabnum }) => {
+  const [current, setCurrent] = useState(tabnum);
+  console.log("Tab num이 뭐게용 : " + tabnum);
 
   const changeTab = (e) => {
     e.stopPropagation();

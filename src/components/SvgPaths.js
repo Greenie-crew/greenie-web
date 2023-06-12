@@ -54,10 +54,11 @@ const svgPaths = {
     kor: "동물",
   },
 
-  기타동물: {
+  pets: {
     img: "/icons/other-animals.svg",
     color: "#82DFFC",
-    kor: "/resources/other-animals.png",
+    src: "/resources/other-animals.png",
+    kor: "동물",
   },
 
   instrument: {
@@ -106,7 +107,7 @@ const svgPaths = {
     img: "/icons/other.svg",
     color: "#606383",
     src: "/resources/other.png",
-    kor: "기타",
+    kor: "일반",
   },
 
   기타: {

@@ -29,11 +29,10 @@ const CustomizedTabMenu = styled(Tab)`
 function ReduceNoiseFloors() {
   const location = useLocation();
 
-  const { activeTab } = location.state ? location.state : 0;
+  const { activeTab, Tabnum } = location.state ? location.state : { activeTab: 0, Tabnum: 0 };
 
-  const handleTabChange = (tabIndex) => {
-    console.log("Selected tab index:", tabIndex);
-  };
+  console.log("Selected tab index: " + activeTab);
+  console.log("Selected tab num: " + Tabnum);
 
   return (
     <div style={{ marginBottom: "20%" }}>
@@ -42,9 +41,8 @@ function ReduceNoiseFloors() {
         name_1="이웃과 소통하기"
         name_2="이웃을 배려하기"
         activeTab={activeTab}
-        onTabChange={handleTabChange}
         content_1={<ConnectWithNeighbours />}
-        content_2={<ConsiderateNeighbours tabs={tabs} />}></CustomizedTabMenu>
+        content_2={<ConsiderateNeighbours tabs={tabs} tabnum={Tabnum} />}></CustomizedTabMenu>
     </div>
   );
 }

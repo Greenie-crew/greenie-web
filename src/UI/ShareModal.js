@@ -22,15 +22,30 @@ const ShareModal = (props) => {
     const { Kakao } = window;
 
     const webLinkUrl = window.location.href;
+    const mimeType = "image/png";
+    const base64Data = props.imgURL.split(",")[1];
+    const byteCharacters = atob(base64Data);
+    const byteArrays = [];
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteArrays.push(byteCharacters.charCodeAt(i));
+    }
+
+    const byteArray = new Uint8Array(byteArrays);
+    const blob = new Blob([byteArray], { type: mimeType });
+    const pngURL = URL.createObjectURL(blob);
+
+    console.log("imgURL임 ------ " + pngURL);
 
     Kakao.Link.sendDefault({
       objectType: "feed",
       content: {
-        title: "[분석날짜] 소음분석결과",
+        title: `[${props.date}] 소음 분석 결과`,
         description: `평균DB: ${props.avgDb} , 소음원: ${svgPaths[props.resource[0].title].kor}`,
-        imageUrl: "https://greenie-web.vercel.app/logo192.png",
+        imageUrl: pngURL,
         link: {
-          webUrl: `${webLinkUrl}`,
+          webUrl: webLinkUrl,
+          mobileWebUrl: webLinkUrl,
         },
       },
     });
@@ -39,7 +54,11 @@ const ShareModal = (props) => {
   const handleCopyClipBoard = async () => {
     const currentUrl = window.location.href;
     try {
-      await navigator.clipboard.writeText(currentUrl);
+      if (typeof window.Android !== "undefined" && typeof window.Android.copyToClipboard === "function") {
+        // 안드로이드 웹뷰의 함수 호출
+        window.Android.copyToClipboard(currentUrl);
+      }
+
       alert("클립보드에 링크가 복사되었어요.");
     } catch (err) {
       alert(currentUrl);

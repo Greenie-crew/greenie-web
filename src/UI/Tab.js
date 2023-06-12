@@ -38,12 +38,10 @@ const Desc = styled.div``;
 
 export const Tab = (props) => {
   // Tab Menu 중 현재 어떤 Tab이 선택되어 있는지 확인하기 위한 currentTab 상태와 currentTab을 갱신하는 함수가 존재해야 하고, 초기값은 0.
-  const [currentTab, clickTab] = useState(0);
+  const { activeTab } = props;
+  const [currentTab, clickTab] = useState(props.activeTab !== undefined ? props.activeTab : 0);
 
-  console.log("Tab에서: " + props.activeTab);
-
-  //   const { activeTab } = props;
-  //   console.log("Tab에서 : " + activeTab);
+  console.log("Tab에서 : " + activeTab);
 
   const menuArr = [
     { name: props.name_1, content: props.content_1 },

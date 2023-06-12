@@ -48,9 +48,11 @@ function NoiseAnalysisResults() {
     db: round(qs.average),
   };
 
+  const date = qs.filename;
+
   const result = Object.entries(qs)
     .map(([key, value]) => {
-      if (key === "average") {
+      if (key === "average" || key === "uid" || key === "filename") {
         return null;
       } else {
         const roundedValue = round(value);
@@ -85,15 +87,15 @@ function NoiseAnalysisResults() {
 
   return (
     <Fragment>
-      <Header customOnClick={handleCustomFunction} showRecord={true}>
+      <Header customOnClick={handleCustomFunction} showRecord={false}>
         소음 분석 결과
       </Header>
       <GraphPanel result={mergedResources} avgDb={averageData} />
       <Bar />
-      <ResourcesPanel items={mergedResources} />
+      <ResourcesPanel items={mergedResources} resource={top1} />
       <HealthPanel />
-      <StorePanel />
-      <Footer resource={top1} avgDb={averageData} />
+      <StorePanel resource={top1} />
+      <Footer resource={top1} avgDb={averageData} date={date} />
     </Fragment>
   );
 }

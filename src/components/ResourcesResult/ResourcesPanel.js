@@ -7,11 +7,29 @@ import { useNavigate } from "react-router-dom";
 
 const ResourcesPanel = (props) => {
   const navigate = useNavigate();
+  const tabTitle = props.resource && props.resource[0].title;
+  let Tabnum = 0;
 
-  const clickHandler = (event) => {
-    event.preventDefault();
-    console.log("Clicked!");
-    navigate();
+  console.log("tabTitle: " + tabTitle);
+
+  if (tabTitle === "footsteps" || tabTitle === "clashing" || tabTitle === "explosion") {
+    Tabnum = 0;
+  } else if (tabTitle === "machine" || tabTitle === "furniture" || tabTitle === "domestic") {
+    Tabnum = 1;
+  } else if (tabTitle === "animal" || tabTitle === "pets") {
+    Tabnum = 2;
+  } else if (tabTitle === "instrument") {
+    Tabnum = 3;
+  } else {
+    Tabnum = 4;
+  }
+
+  const clickHandler = () => {
+    const activeTab = 1;
+    const state = { activeTab, Tabnum };
+
+    navigate("/solution_tab", { state });
+    window.scrollTo(0, 0);
   };
 
   console.log("소음 줄이기 버튼 이동: " + props.items[0].title);

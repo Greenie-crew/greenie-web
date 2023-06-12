@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import classes from "../css/Footer.module.css";
 import ShareModal from "../UI/ShareModal";
+import { useSelector } from "react-redux";
 
 const Footer = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const imageURL = useSelector((state) => state.imageURL);
+
+  console.log("imageURL : " + imageURL);
 
   const openModal = () => {
     setModalOpen(true);
@@ -30,7 +35,7 @@ const Footer = (props) => {
         <button className={classes.btn_active} onClick={openModal}>
           공유하기
         </button>
-        {modalOpen && <ShareModal onClose={closeModal} avgDb={props.avgDb.db} resource={props.resource} />}
+        {modalOpen && <ShareModal onClose={closeModal} avgDb={props.avgDb.db} resource={props.resource} date={props.date} imgURL={imageURL} />}
       </footer>
     </>
   );
