@@ -12,6 +12,7 @@ const Tag = styled.div`
   flex-direction: row;
   list-style: none;
   margin: 8px 17px;
+  margin-top: 12px;
   line-height: 20.72px;
 `;
 

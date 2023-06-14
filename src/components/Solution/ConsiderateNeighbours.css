@@ -64,18 +64,18 @@
   }
   
   .slide-enter {
-    transform: translateX(100%);
+    transform: translateX(0);
     opacity: 0;
   }
   
   .slide-enter-active {
-    transform: translateX(0);
+    transform: translateX(100%);
     opacity: 1;
     transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
   }
   
   .slide-exit {
-    transform: translateX(0);
+    transform: translateX(100%);
     opacity: 0;
   }
   

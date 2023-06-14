@@ -70,7 +70,9 @@ const Graph = (props) => {
 
           // 텍스트 그리기
           const DBavg_text = `${props.db}`;
-          const textX = (chartArea.left + chartArea.right) / 2.15;
+
+          //   const textWidth = ctx.measureText(DBavg_text).width; // 텍스트의 너비 계산
+          const textX = (chartArea.left + chartArea.right - imageWidth + 25) / 2;
           const textY = imageY + imageHeight + 32;
           const originalFont = ctx.font;
 

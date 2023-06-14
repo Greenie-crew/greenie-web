@@ -3,7 +3,7 @@ const svgPaths = {
     img: "/icons/footstep.svg",
     color: "#FECA00",
     src: "/resources/footstep.png",
-    kor: "발",
+    kor: "발소리",
   },
 
   clashing: {

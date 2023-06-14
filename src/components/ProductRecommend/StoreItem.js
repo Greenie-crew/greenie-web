@@ -20,7 +20,7 @@ const StoreItem = (props) => {
         <div className={classes.tags}>
           {tagsArray.map((tag, index) => (
             <span key={index} className={classes.tag}>
-              #{svgPaths[tag].kor}소리{" "}
+              {svgPaths[tag].kor.includes("소리") ? "#" + svgPaths[tag].kor : "#" + svgPaths[tag].kor + "소리 "}
             </span>
           ))}
         </div>

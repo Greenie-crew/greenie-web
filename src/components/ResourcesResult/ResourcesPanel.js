@@ -7,10 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 const ResourcesPanel = (props) => {
   const navigate = useNavigate();
-  const tabTitle = props.resource && props.resource[0].title;
-  let Tabnum = 0;
+  const tabTitle = props.resource.title && props.resource[0].title;
 
-  console.log("tabTitle: " + tabTitle);
+  console.log("TabTitle  " + JSON.stringify(props.resource));
+  let Tabnum = 0;
 
   if (tabTitle === "footsteps" || tabTitle === "clashing" || tabTitle === "explosion") {
     Tabnum = 0;
@@ -32,7 +32,6 @@ const ResourcesPanel = (props) => {
     window.scrollTo(0, 0);
   };
 
-  console.log("소음 줄이기 버튼 이동: " + props.items[0].title);
   return (
     <div style={{ paddingBottom: "5px" }}>
       <Panel>소음원 종류</Panel>

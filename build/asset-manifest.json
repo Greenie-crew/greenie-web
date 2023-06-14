@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.9c9bea50.css",
-    "main.js": "/static/js/main.e6d31db2.js",
+    "main.css": "/static/css/main.2697bb0a.css",
+    "main.js": "/static/js/main.378142ba.js",
     "static/media/NotoSansCJKkr-Black.otf": "/static/media/NotoSansCJKkr-Black.c08d1a40f19a2f5a5850.otf",
     "static/media/NotoSansCJKkr-Bold.otf": "/static/media/NotoSansCJKkr-Bold.9b1db29fc2a12922bfa6.otf",
     "static/media/NotoSansCJKkr-Medium.otf": "/static/media/NotoSansCJKkr-Medium.a89c0e766c9f7264d04e.otf",
@@ -16,11 +16,11 @@
     "static/media/louder.png": "/static/media/louder.e0bce48041dcf5ceefa9.png",
     "static/media/landscape.png": "/static/media/landscape.bd87fd354a7d1f9fec34.png",
     "index.html": "/index.html",
-    "main.9c9bea50.css.map": "/static/css/main.9c9bea50.css.map",
-    "main.e6d31db2.js.map": "/static/js/main.e6d31db2.js.map"
+    "main.2697bb0a.css.map": "/static/css/main.2697bb0a.css.map",
+    "main.378142ba.js.map": "/static/js/main.378142ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c9bea50.css",
-    "static/js/main.e6d31db2.js"
+    "static/css/main.2697bb0a.css",
+    "static/js/main.378142ba.js"
   ]
 }

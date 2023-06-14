@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import queryString from "query-string";
 
 import Header from "../components/Header";
@@ -11,6 +11,8 @@ import GraphPanel from "../components/ResourcesResult/GraphPanel";
 import StorePanel from "../components/ProductRecommend/StorePanel";
 
 import Bar from "../UI/Bar";
+
+import axios from "axios";
 
 //소음원 종류 데이터
 // const DUMMY_RESOURCES = [
@@ -43,13 +45,6 @@ function NoiseAnalysisResults() {
 
   let qs = queryString.parse(window.location.search);
 
-  const averageData = {
-    title: "average",
-    db: round(qs.average),
-  };
-
-  const date = qs.filename;
-
   const result = Object.entries(qs)
     .map(([key, value]) => {
       if (key === "average" || key === "uid" || key === "filename") {
@@ -63,6 +58,43 @@ function NoiseAnalysisResults() {
       }
     })
     .filter((item) => item !== null);
+
+  // {
+  //     "username":"앱번호",
+  //     "title":"데이터 제목",
+  //     "analysisData":
+  //     "소음원1 퍼센트,
+  //        소음원2 퍼센트,소음원3 퍼센트",
+  //     "bell": 평균데시벨,
+  //     }
+
+  const averageData = {
+    title: "average",
+    db: round(qs.average ? qs.average : 0),
+    date: qs.filename,
+    uid: qs.uid,
+    result: result.map((item) => `${item.title} ${item.percent.replace("%", "")}`),
+  };
+
+  //   console.log("여기여 :   " + JSON.stringify(averageData.result));
+
+  const postData = async () => {
+    try {
+      const response = await axios.post("http://43.200.32.42:8080/api/voice", {
+        username: averageData.uid,
+        title: averageData.date,
+        analysisData: averageData.result[0],
+        bell: averageData.db,
+      });
+      console.log(response.data); // 요청에 대한 응답 데이터 확인
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    postData();
+  });
 
   const resources = result;
 
@@ -95,7 +127,7 @@ function NoiseAnalysisResults() {
       <ResourcesPanel items={mergedResources} resource={top1} />
       <HealthPanel />
       <StorePanel resource={top1} />
-      <Footer resource={top1} avgDb={averageData} date={date} />
+      <Footer resource={top1} avgDb={averageData} date={averageData.date} />
     </Fragment>
   );
 }

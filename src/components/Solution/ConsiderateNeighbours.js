@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import "./ConsiderateNeighbours.css";
 
 const ConsiderateNeighbours = ({ tabs, tabnum }) => {
-  const [current, setCurrent] = useState(tabnum);
+  const [current, setCurrent] = useState(tabnum !== undefined ? tabnum : 0);
   console.log("Tab num이 뭐게용 : " + tabnum);
 
   const changeTab = (e) => {
@@ -33,10 +33,10 @@ const ConsiderateNeighbours = ({ tabs, tabnum }) => {
               in={current === index}
               timeout={500}
               classNames={{
-                enter: "slide-enter",
-                enterActive: "slide-enter-active",
-                exit: "slide-exit",
-                exitActive: "slide-exit-active",
+                enter: "slide-exit",
+                enterActive: "slide-exit-active",
+                exit: "slide-enter",
+                exitActive: "slide-enter-active",
               }}
               unmountOnExit>
               {tab.text}

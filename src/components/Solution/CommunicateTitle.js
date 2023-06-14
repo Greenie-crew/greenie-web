@@ -10,7 +10,7 @@ const CommunicateTitle = styled.div`
   align-items: center;
 
   padding: 0 17px;
-  margin-top: 32px;
+  margin-top: 35px;
 
   img {
     margin-right: 12px;
