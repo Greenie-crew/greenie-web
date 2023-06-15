@@ -142,7 +142,7 @@ Vercel 배포 주소: : https://greenie-web.vercel.app/?${queryString} [분석�
     │   ├── reduce_noise_floors_main.js
     │   └── reduce_noise_floors.js
     ├── images
-    ├── UI
+    ├── UI : 공통으로 사용되는 UI
     │   ├── Banner.js / css
     │   ├── Bar.js / css
     │   ├── Button.js / css 
