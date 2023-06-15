@@ -114,7 +114,7 @@ Vercel 배포 주소: : https://greenie-web.vercel.app/?${queryString} [분석�
     │   │   ├── ResourceItem.js
     │   │   ├── ResourcesList.js
     │   │   ├── ResourcesPanel.js
-    │   └── Solution
+    │   └── Solution : 층간소음 줄이기 
     │   │   ├── SolutionListPanel 부제목 컨텐츠 컴포넌트
     │   │   │   ├── Etc.js
     │   │   │   ├── HomeAppliances.js
